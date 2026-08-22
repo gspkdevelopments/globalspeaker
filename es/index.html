@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GlobalSpeaker — Estudio independiente de iniciativas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GlobalSpeaker es un estudio independiente de Riviera Maya que construye sistemas prácticos para idiomas, reubicación, propiedad, movilidad, hospitalidad y operaciones.">
+<link rel="canonical" href="https://gspkdevelopments.github.io/globalspeaker/es/">
+<link rel="alternate" hreflang="en" href="https://gspkdevelopments.github.io/globalspeaker/">
+<link rel="alternate" hreflang="es" href="https://gspkdevelopments.github.io/globalspeaker/es/">
+<link rel="alternate" hreflang="fr" href="https://gspkdevelopments.github.io/globalspeaker/fr/">
+<link rel="alternate" hreflang="x-default" href="https://gspkdevelopments.github.io/globalspeaker/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --black:#0B0A08;
+    --black-deep:#050504;
+    --card:#131110;
+    --card-line:rgba(198,162,83,0.28);
+    --gold:#C6A253;
+    --gold-bright:#E7C77E;
+    --ivory:#F1EAD9;
+    --ivory-soft:#B4AA95;
+
+    --dot-legal:#C6A253;
+    --dot-property:#B57A46;
+    --dot-woolis:#9C9455;
+    --dot-pulse:#B4715A;
+    --dot-global:#6F9C93;
+    --dot-ops:#7E8FA3;
+
+    --font-display:'Rozha One', 'Playfair Display', Georgia, serif;
+    --font-label:'Cinzel', Georgia, serif;
+    --font-body:'EB Garamond', Georgia, 'Iowan Old Style', serif;
+    --font-mono:'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(198,162,83,0.10), transparent 60%),
+      var(--black);
+    color:var(--ivory);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  }
+
+  a{ color:inherit; }
+  img,svg{ display:block; }
+
+  .wrap{
+    max-width:600px;
+    margin-inline:auto;
+    padding:64px 22px 60px;
+    text-align:center;
+  }
+
+  .language-switch{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+    margin-bottom:28px;
+    font-family:var(--font-mono);
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+  }
+  .language-switch span{ color:rgba(180,170,149,0.45); }
+  .language-switch a{
+    color:var(--ivory-soft);
+    text-decoration:none;
+    padding:4px 2px;
+  }
+  .language-switch a:hover,
+  .language-switch a[aria-current="page"]{ color:var(--gold-bright); }
+  .language-switch a[aria-current="page"]{
+    text-decoration:underline;
+    text-decoration-color:var(--gold);
+    text-underline-offset:5px;
+  }
+
+  /* ---------- Emblem ---------- */
+  .emblem{
+    position:relative;
+    width:194px;
+    height:194px;
+    margin:0 auto;
+  }
+  .emblem-star{
+    position:absolute;
+    top:-22px;
+    left:50%;
+    transform:translateX(-50%);
+    width:52px;
+    height:52px;
+    z-index:2;
+  }
+  .emblem-rays{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:repeating-conic-gradient(
+      var(--gold) 0deg 1deg,
+      transparent 1deg 15deg
+    );
+    -webkit-mask-image:radial-gradient(circle, transparent 0 62%, black 64% 68%, transparent 71% 100%);
+            mask-image:radial-gradient(circle, transparent 0 62%, black 64% 68%, transparent 71% 100%);
+    opacity:0.85;
+  }
+  .emblem-rings{
+    position:absolute;
+    inset:22px;
+  }
+
+  .wordmark-block{ margin-top:26px; }
+  h1.wordmark{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:clamp(2.5rem, 10vw, 3.4rem);
+    letter-spacing:0.03em;
+    color:var(--ivory);
+    margin:0;
+    text-wrap:balance;
+    text-shadow:0 0 28px rgba(198,162,83,0.18);
+  }
+  .eyebrow{
+    margin-top:14px;
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  .tagline{
+    margin:26px auto 0;
+    max-width:46ch;
+    font-size:1.14rem;
+    color:var(--ivory-soft);
+  }
+  .tagline em{
+    font-style:italic;
+    color:var(--ivory);
+  }
+
+  /* ---------- Divider ---------- */
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin:44px 0;
+  }
+  .divider .rule{
+    height:1px;
+    width:100%;
+    background:linear-gradient(90deg, transparent, var(--card-line) 30%, var(--card-line) 70%, transparent);
+  }
+  .divider .diamond{
+    flex-shrink:0;
+    width:8px;
+    height:8px;
+    background:var(--gold);
+    transform:rotate(45deg);
+  }
+
+  /* ---------- Ventures ---------- */
+  .section-eyebrow{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:0.7rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  h2.section-title{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:1.7rem;
+    letter-spacing:0.01em;
+    margin:10px 0 30px;
+    color:var(--ivory);
+    text-wrap:balance;
+  }
+
+  .stubs{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    text-align:left;
+  }
+
+  .stub{
+    display:block;
+    text-decoration:none;
+    background:var(--card);
+    border:1px solid var(--card-line);
+    border-radius:4px;
+    overflow:hidden;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .stub:hover{
+    transform:translateY(-2px);
+    border-color:var(--gold);
+  }
+  .stub:focus-visible{
+    outline:1.5px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  .stub-main{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+    padding:22px 24px;
+  }
+  .stub-dot{
+    flex-shrink:0;
+    width:9px;
+    height:9px;
+    margin-top:8px;
+    background:var(--dot, var(--gold));
+    transform:rotate(45deg);
+  }
+  .stub-body{ min-width:0; flex:1; }
+  .stub-eyebrow{
+    font-family:var(--font-label);
+    font-size:0.66rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--dot, var(--gold));
+  }
+  .stub-name{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:1.36rem;
+    letter-spacing:0.01em;
+    margin-top:5px;
+    color:var(--ivory);
+  }
+  .stub-desc{
+    margin-top:7px;
+    color:var(--ivory-soft);
+    font-size:1rem;
+    max-width:50ch;
+  }
+
+  .stub-ticket{
+    border-top:1px solid var(--card-line);
+    padding:11px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    color:var(--ivory-soft);
+    letter-spacing:0.01em;
+  }
+  .stub-url{ word-break:break-all; opacity:0.85; }
+  .stub-go{
+    flex-shrink:0;
+    color:var(--dot, var(--gold));
+    font-weight:600;
+    font-family:var(--font-label);
+    letter-spacing:0.08em;
+    font-size:0.68rem;
+    text-transform:uppercase;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer{
+    margin-top:52px;
+  }
+  .footer .credit{
+    font-family:var(--font-label);
+    font-weight:600;
+    font-size:0.72rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .footer p.sub{
+    margin:10px 0 0;
+    font-size:0.9rem;
+    color:var(--ivory-soft);
+  }
+
+  @media (max-width:420px){
+    .emblem{ width:160px; height:160px; }
+    .emblem-star{ width:44px; height:44px; top:-18px; }
+    .stub-main{ padding:18px; }
+    .stub-ticket{ padding:10px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="language-switch" aria-label="Idioma">
+    <a href="../" lang="en" hreflang="en">EN</a><span aria-hidden="true">/</span>
+    <a href="./" lang="es" hreflang="es" aria-current="page">ES</a><span aria-hidden="true">/</span>
+    <a href="../fr/" lang="fr" hreflang="fr">FR</a>
+  </nav>
+
+  <div class="emblem" aria-hidden="true">
+    <svg class="emblem-star" viewBox="0 0 64 64" fill="var(--gold)">
+      <polygon points="32,4 33.16,29.19 51.8,12.2 34.81,30.84 60,32 34.81,33.16 51.8,51.8 33.16,34.81 32,60 30.84,34.81 12.2,51.8 29.19,33.16 4,32 29.19,30.84 12.2,12.2 30.84,29.19" />
+    </svg>
+    <div class="emblem-rays"></div>
+    <svg class="emblem-rings" viewBox="0 0 200 200" fill="none">
+      <circle cx="100" cy="100" r="78" stroke="var(--gold)" stroke-width="1.4"/>
+      <circle cx="100" cy="100" r="67" stroke="var(--gold)" stroke-width="1"/>
+      <path d="M20,100 Q100,58 180,100 Q100,142 20,100 Z" stroke="var(--gold)" stroke-width="1.6" fill="var(--black)"/>
+      <circle cx="100" cy="100" r="17" fill="var(--gold)"/>
+      <circle cx="100" cy="100" r="8" fill="var(--black)"/>
+    </svg>
+  </div>
+
+  <div class="wordmark-block">
+    <h1 class="wordmark">GLOBALSPEAKER</h1>
+    <div class="eyebrow">Estudio de iniciativas · Riviera Maya, México</div>
+  </div>
+
+  <p class="tagline">Un estudio independiente que construye los sistemas que recién llegados, inversionistas y viajeros necesitan para moverse por México con claridad — <em>propiedad, documentación, movilidad, hospitalidad</em> y el lenguaje que conecta todo.</p>
+
+  <div class="divider" role="presentation"><span class="rule"></span><span class="diamond"></span><span class="rule"></span></div>
+
+  <section aria-labelledby="ventures-title">
+    <div class="section-eyebrow">El estudio</div>
+    <h2 class="section-title" id="ventures-title">Seis iniciativas. Una visión.</h2>
+
+    <div class="stubs">
+
+      <a class="stub" style="--dot:var(--dot-legal)" href="https://riviera-legal-connect-production.up.railway.app/" target="_blank" rel="noopener">
+        <div class="stub-main">
+          <span class="stub-dot" aria-hidden="true"></span>
+          <div class="stub-body">
+            <div class="stub-eyebrow">Reubicación y documentos · independiente, no es un despacho jurídico</div>
+            <div class="stub-name">Riviera Legal Connect</div>
+            <p class="stub-desc">Coordinación para extranjeros que organizan una mudanza, documentación y referencias con profesionales autorizados en México.</p>
+          </div>
+        </div>
+        <div class="stub-ticket">
+          <span class="stub-url">riviera-legal-connect-production.up.railway.app</span>
+          <span class="stub-go">Visitar →</span>
+        </div>
+      </a>
+
+      <a class="stub" style="--dot:var(--dot-property)" href="https://riviera-property-advisory.vercel.app/" target="_blank" rel="noopener">
+        <div class="stub-main">
+          <span class="stub-dot" aria-hidden="true"></span>
+          <div class="stub-body">
+            <div class="stub-eyebrow">Asesoría inmobiliaria</div>
+            <div class="stub-name">Riviera Property Advisory</div>
+            <p class="stub-desc">Propiedades con visión en Tulum, Playa del Carmen y Ciudad de México.</p>
+          </div>
+        </div>
+        <div class="stub-ticket">
+          <span class="stub-url">riviera-property-advisory.vercel.app</span>
+          <span class="stub-go">Visitar →</span>
+        </div>
+      </a>
+
+      <a class="stub" style="--dot:var(--dot-woolis)" href="https://gspkdevelopments.github.io/woolis-shop/" target="_blank" rel="noopener">
+        <div class="stub-main">
+          <span class="stub-dot" aria-hidden="true"></span>
+          <div class="stub-body">
+            <div class="stub-eyebrow">Local · consciente · eléctrico</div>
+            <div class="stub-name">Woolis Shop · Tulum</div>
+            <p class="stub-desc">Movilidad eléctrica Yadea y una marca para vivir Tulum con mayor intención.</p>
+          </div>
+        </div>
+        <div class="stub-ticket">
+          <span class="stub-url">gspkdevelopments.github.io/woolis-shop</span>
+          <span class="stub-go">Visitar →</span>
+        </div>
+      </a>
+
+      <a class="stub" style="--dot:var(--dot-pulse)" href="https://gspkdevelopments.github.io/place-and-pulse/" target="_blank" rel="noopener">
+        <div class="stub-main">
+          <span class="stub-dot" aria-hidden="true"></span>
+          <div class="stub-body">
+            <div class="stub-eyebrow">Celebrar · salir de la rutina · renovarse</div>
+            <div class="stub-name">Place &amp; Pulse</div>
+            <p class="stub-desc">Concierge privado para viajes en grupo: villa, gastronomía y bienestar coordinados en una sola conversación.</p>
+          </div>
+        </div>
+        <div class="stub-ticket">
+          <span class="stub-url">gspkdevelopments.github.io/place-and-pulse</span>
+          <span class="stub-go">Visitar →</span>
+        </div>
+      </a>
+
+      <a class="stub" style="--dot:var(--dot-global)" href="https://global-speaker-omega.vercel.app/" target="_blank" rel="noopener">
+        <div class="stub-main">
+          <span class="stub-dot" aria-hidden="true"></span>
+          <div class="stub-body">
+            <div class="stub-eyebrow">Idiomas · hospitalidad · trabajo global</div>
+            <div class="stub-name">GlobalSpeaker</div>
+            <p class="stub-desc">Formación práctica en inglés y francés para profesionales de hospitalidad, turismo, bienes raíces y servicios.</p>
+          </div>
+        </div>
+        <div class="stub-ticket">
+          <span class="stub-url">global-speaker-omega.vercel.app</span>
+          <span class="stub-go">Visitar →</span>
+        </div>
+      </a>
+
+      <a class="stub" style="--dot:var(--dot-ops)" href="https://property-ops-intel.vercel.app/" target="_blank" rel="noopener">
+        <div class="stub-main">
+          <span class="stub-dot" aria-hidden="true"></span>
+          <div class="stub-body">
+            <div class="stub-eyebrow">Operaciones · incidentes · inteligencia</div>
+            <div class="stub-name">Property Ops Intel</div>
+            <p class="stub-desc">Inteligencia operativa para equipos de propiedades: captura incidentes, coordina respuestas y revela riesgos recurrentes.</p>
+          </div>
+        </div>
+        <div class="stub-ticket">
+          <span class="stub-url">property-ops-intel.vercel.app</span>
+          <span class="stub-go">Visitar →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider" role="presentation"><span class="rule"></span><span class="diamond"></span><span class="rule"></span></div>
+
+  <footer class="footer">
+    <div class="credit">GlobalSpeaker</div>
+    <p class="sub">Ricardo Aguilar · Riviera Maya, México</p>
+  </footer>
+
+</div>
+</body>
+</html>
