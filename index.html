@@ -1,5 +1,15 @@
-<title>GlobalSpeaker</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GlobalSpeaker — Independent Venture Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GlobalSpeaker is an independent Riviera Maya venture studio building practical systems for language, relocation, property, mobility, hospitality and operations.">
+<link rel="canonical" href="https://gspkdevelopments.github.io/globalspeaker/">
+<link rel="alternate" hreflang="en" href="https://gspkdevelopments.github.io/globalspeaker/">
+<link rel="alternate" hreflang="es" href="https://gspkdevelopments.github.io/globalspeaker/es/">
+<link rel="alternate" hreflang="fr" href="https://gspkdevelopments.github.io/globalspeaker/fr/">
+<link rel="alternate" hreflang="x-default" href="https://gspkdevelopments.github.io/globalspeaker/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -52,6 +62,30 @@
     margin-inline:auto;
     padding:64px 22px 60px;
     text-align:center;
+  }
+
+  .language-switch{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+    margin-bottom:28px;
+    font-family:var(--font-mono);
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+  }
+  .language-switch span{ color:rgba(180,170,149,0.45); }
+  .language-switch a{
+    color:var(--ivory-soft);
+    text-decoration:none;
+    padding:4px 2px;
+  }
+  .language-switch a:hover,
+  .language-switch a[aria-current="page"]{ color:var(--gold-bright); }
+  .language-switch a[aria-current="page"]{
+    text-decoration:underline;
+    text-decoration-color:var(--gold);
+    text-underline-offset:5px;
   }
 
   /* ---------- Emblem ---------- */
@@ -269,8 +303,15 @@
     .stub-ticket{ padding:10px 18px; }
   }
 </style>
+</head>
+<body>
 
 <div class="wrap">
+  <nav class="language-switch" aria-label="Language">
+    <a href="./" lang="en" hreflang="en" aria-current="page">EN</a><span aria-hidden="true">/</span>
+    <a href="./es/" lang="es" hreflang="es">ES</a><span aria-hidden="true">/</span>
+    <a href="./fr/" lang="fr" hreflang="fr">FR</a>
+  </nav>
 
   <div class="emblem" aria-hidden="true">
     <svg class="emblem-star" viewBox="0 0 64 64" fill="var(--gold)">
@@ -402,3 +443,5 @@
   </footer>
 
 </div>
+</body>
+</html>
