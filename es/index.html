@@ -209,10 +209,11 @@
     border:1px solid var(--card-line);
     border-radius:4px;
     overflow:hidden;
-    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
   }
   .stub:hover{
     transform:translateY(-4px);
+    background:var(--ivory);
     border-color:var(--gold);
     box-shadow:0 8px 20px rgba(11,10,8,0.10);
   }
@@ -250,12 +251,20 @@
     letter-spacing:0.01em;
     margin-top:5px;
     color:var(--ivory);
+    transition:color .18s ease;
   }
   .stub-desc{
     margin-top:7px;
     color:var(--ivory-soft);
     font-size:1rem;
     max-width:50ch;
+    transition:color .18s ease;
+  }
+  .stub:hover .stub-name{
+    color:var(--black);
+  }
+  .stub:hover .stub-desc{
+    color:var(--black-deep);
   }
 
   .stub-ticket{
@@ -269,8 +278,16 @@
     font-size:0.72rem;
     color:var(--ivory-soft);
     letter-spacing:0.01em;
+    transition:color .18s ease, border-color .18s ease;
   }
-  .stub-url{ word-break:break-all; opacity:0.85; }
+  .stub-url{ word-break:break-all; opacity:0.85; transition:color .18s ease; }
+  .stub:hover .stub-ticket{
+    color:var(--black-deep);
+    border-top-color:rgba(245,240,230,0.22);
+  }
+  .stub:hover .stub-url{
+    color:var(--black);
+  }
   .stub-go{
     position:relative;
     padding-bottom:2px;
